@@ -1,14 +1,76 @@
 # -*- Coding: UTF-8 -*-
 # Python 3
-# IPage.py
+#                    ██╗██████╗  █████╗  ██████╗ ███████╗
+#                    ██║██╔══██╗██╔══██╗██╔════╝ ██╔════╝
+#                    ██║██████╔╝███████║██║  ███╗█████╗  
+#                    ██║██╔═══╝ ██╔══██║██║   ██║██╔══╝  
+#                    ██║██║     ██║  ██║╚██████╔╝███████╗
+#                    ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
+#                                                         By: LawlietJH
+#                                                               v1.0.2
 
 import sys
 import os
 
 
 
-Autor = "LawlietJH"
-Version = "v1.0.0" 
+Version = "v1.0.2"
+
+
+
+# Banners: http://patorjk.com/software/taag/
+
+
+
+Banner1 = """
+                     ██╗██████╗  █████╗  ██████╗ ███████╗
+                     ██║██╔══██╗██╔══██╗██╔════╝ ██╔════╝
+                     ██║██████╔╝███████║██║  ███╗█████╗  
+                     ██║██╔═══╝ ██╔══██║██║   ██║██╔══╝  
+                     ██║██║     ██║  ██║╚██████╔╝███████╗
+                     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
+"""
+# Fuente: ANSI Shadow - http://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=IPage
+
+
+
+Banner2 = """
+                                 ╦╔═╗┌─┐┌─┐┌─┐
+                                 ║╠═╝├─┤│ ┬├┤ 
+                                 ╩╩  ┴ ┴└─┘└─┘
+"""
+# Fuente: Calvin S - http://patorjk.com/software/taag/#p=display&f=Calvin%20S&t=IPage
+
+
+
+Autor = """
+                            ╦  ┌─┐┬ ┬┬  ┬┌─┐┌┬┐╦╦ ╦
+                            ║  ├─┤││││  │├┤  │ ║╠═╣
+                            ╩═╝┴ ┴└┴┘┴─┘┴└─┘ ┴╚╝╩ ╩
+"""
+# Fuente: Calvin S - http://patorjk.com/software/taag/#p=display&f=Calvin%20S&t=LawlietJH
+
+
+
+#=======================================================================
+
+
+
+def Dat():	# Función Que Permite Mostrar Los Datos Del Script.
+	
+	os.system("cls && Title IPage.py                "+\
+			"By: LawlietJH                "+Version+"    ")
+	
+	print("\n\n\n", Banner1, "\n\n\n", Autor, "\n\n\n{:^80}\n\n".format(Version))
+	
+	try:
+		os.system("TimeOut /NoBreak 2 > Nul")
+	except:
+		Dat()
+
+
+
+#=======================================================================
 
 
 
@@ -16,10 +78,8 @@ def getIP(Pagina): # Función que obtiene la IP de una Página Web solicitada.
 	
 	if Pagina == "": return True
 	
-	Comando = "ping " + Pagina
-	Cadena = os.popen(Comando)
-	Cadena = Cadena.read()
-
+	Cadena = os.popen("ping -n 1 " + Pagina).read()
+	
 	try:
 		
 		IP = Cadena.split("[")[1].split("]")[0]
@@ -30,20 +90,36 @@ def getIP(Pagina): # Función que obtiene la IP de una Página Web solicitada.
 
 
 
-def Main():
+def Main(): # Función Principal. Manda a Llamra Los Métodos Necesarios.
 	
 	Pagina = input("\n\n\n    [+] Página Web: ")
 	
 	IP = getIP(Pagina)
 	
-	if IP == True: print("\n\t [!] Escribe Una Página Web. \n\n\t [*] Ejemplo: www.google.com  o  google.com")
-	elif IP == False: print("\n\t [!] Página Inexistente! \n\n\t [*] Ejemplo: www.google.com  o  google.com")
-	else: print('\n\t [*] IP de "' + Pagina + '": ' + IP)
+	if IP == True: print("\n\t [!] Escribe Una Página Web. \n\t [*] Ejemplo: www.google.com  o  google.com")
+	elif IP == False: print("\n\t [!] Página Inexistente! \n\t [*] Ejemplo: www.google.com  o  google.com")
+	else: print("\n\t [*]  IP  : " + IP)
 
 
 
-if __name__ == "__main__":
+#=======================================================================
+
+
+
+# Todo Lo Que Este Dentro De Esta Condicion Será Ejecutado Solo Si El Script Se Ejecuta Directamente.
+# Esto nos permite Poder llamar las funciones desde otro escript sin ejecutar los comandos dentro del condicional.
+if __name__ == "__main__":  
+	
+	os.system("Title IPage.py                "+\
+	"By: LawlietJH                "+Version+"    ")
 	
 	while True:
 		
-		Main()
+		try:
+			Main()
+		except KeyboardInterrupt:
+			
+			Dat()
+			break
+
+
