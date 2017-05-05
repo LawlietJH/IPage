@@ -7,7 +7,7 @@
 #                     ██║██║     ██║  ██║╚██████╔╝███████╗
 #                     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
 #                                                         By: LawlietJH
-#                                                         GUI - v1.0.2
+#                                                         GUI - v1.0.3
 
 from tkinter import *
 import sys
@@ -15,7 +15,7 @@ import os
 
 
 
-Version = "v1.0.2"
+Version = "v1.0.3"
 
 
 
@@ -29,7 +29,8 @@ def getIP(): # Función que obtiene la IP de una Página Web solicitada.
 	
 	if Pagina == "":
 		
-		Et5.config(text="Escribe Una Página Web.")
+		Texto2.delete(0,100)
+		Texto2.insert(0,"Escribe Una Página Web.")
 		
 		return
 	
@@ -39,9 +40,12 @@ def getIP(): # Función que obtiene la IP de una Página Web solicitada.
 		
 		IP = Cadena.split("[")[1].split("]")[0]
 		
-		Et5.config(text=IP)
+		Texto2.delete(0,100)
+		Texto2.insert(0,IP)
 		
-	except IndexError: Et5.config(text="Página Inexistente!")
+	except IndexError:
+		Texto2.delete(0,100)
+		Texto2.insert(0,"Página Inexistente!")
 
 
 
@@ -53,9 +57,9 @@ if __name__ == "__main__":
 	
 	root = Tk()
 	
-	root.title("GUIPage.py  By: LawlietJH  " + Version)
+	root.title("IPage.py    By: LawlietJH    GUI_" + Version)
 	root.iconbitmap("Imagenes\LawlietJH.ico")
-	root.geometry("+240+160")
+	root.geometry("+320+240")
 	root.resizable(0,0)
 	
 	#===============================================================
@@ -70,7 +74,7 @@ if __name__ == "__main__":
 	#===============================================================
 	
 	# Etiqueta 1:
-	Et1 = Label(Fr, fg="Purple", text="Ejemplo: ")
+	Et1 = Label(Fr, fg="Purple", text="Ejemplo: ", font="Calibri 11 bold")
 	Et1.grid(row=0, column=0, sticky=E, padx=(10,0), pady=(15,5))
 	
 	# Etiqueta 2:
@@ -80,28 +84,39 @@ if __name__ == "__main__":
 	#===============================================================
 	
 	# Etiqueta 3:
-	Et3 = Label(Fr, fg="Purple", text="Página: ")
+	Et3 = Label(Fr, fg="Purple", text="Página: ", font="Calibri 11 bold")
 	Et3.grid(row=1, column=0, sticky=E)
 	
 	# Cuadro de Texto 1:
-	Texto1 = Entry(Fr, fg="Green", width=30)
+	Texto1 = Entry(Fr, width=30, font="Calibri 11 italic bold",\
+			 justify="center", bg="White", fg="Green", bd=0,\
+			 highlightbackground="#1E6FBA", highlightcolor="red",\
+			 highlightthickness=1)
 	Texto1.grid(row=1, column=1, sticky=W)
-	Texto1.config(justify="center")
+	Texto1.config(justify="center", state="normal")
+	Texto1.insert("0","facebook.com")
 	
 	# Boton 1:
 	BgetIP = Button(Fr, bg="lightblue", fg="Blue",\
-		width=10, cursor="", text="IP", command=getIP)
+		width=10, cursor="exchange", text="IP", command=getIP)
 	BgetIP.grid(row=1, column=2, sticky=W, padx=15)
 	
 	#===============================================================
 	
 	# Etiqueta 4:
-	Et4 = Label(Fr, fg="Purple", text="IP: ")
+	Et4 = Label(Fr, fg="Purple", text="IP: ", font="Calibri 11 bold")
 	Et4.grid(row=3, column=0, sticky=E, pady=(5,10))
 	
-	# Etiqueta 5:
-	Et5 = Label(Fr, fg="Red", text="Esperando IP...")
-	Et5.grid(row=3, column=1, sticky=W, pady=(5,10))
+	# Cuadro de Texto 2:
+	IP ="Esperando IP..."
+	
+	Texto2 = Entry(Fr, width=30, font="Calibri 11 bold", justify="center",\
+			 bg="White", fg="Red", bd=0, exportselection=1,\
+			 highlightbackground="#1E6FBA", highlightcolor="red",\
+			 highlightthickness=1)
+	Texto2.grid(row=3, column=1, sticky=W, pady=(5,10))
+	Texto2.config(justify="center", state="normal")
+	Texto2.insert(0, IP)
 	
 	#===============================================================
 	
