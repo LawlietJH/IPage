@@ -7,7 +7,7 @@
 #                     ██║██║     ██║  ██║╚██████╔╝███████╗
 #                     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
 #                                                         By: LawlietJH
-#                                                         GUI - v1.0.3
+#                                                         GUI - v1.0.4
 
 from tkinter import *
 import sys
@@ -15,7 +15,7 @@ import os
 
 
 
-Version = "v1.0.3"
+Version = "v1.0.4"
 
 
 
@@ -79,7 +79,8 @@ if __name__ == "__main__":
 	
 	# Etiqueta 2:
 	Et2 = Label(Fr, fg="Gray", text="www.google.com  o  google.com")
-	Et2.grid(row=0, column=1, sticky=W, pady=(15,5))
+	Et2.grid(row=0, column=1, sticky=(W,E), pady=(15,5))
+	Et2.config(font="Calibri 10 bold italic")#, justify="center")
 	
 	#===============================================================
 	
@@ -97,9 +98,11 @@ if __name__ == "__main__":
 	Texto1.insert("0","facebook.com")
 	
 	# Boton 1:
-	BgetIP = Button(Fr, bg="lightblue", fg="Blue",\
-		width=10, cursor="exchange", text="IP", command=getIP)
-	BgetIP.grid(row=1, column=2, sticky=W, padx=15)
+	BgetIP = Button(Fr, bg="cadetblue", fg="darkBlue",\
+		activebackground="lightblue", activeforeground="#1E6FBA",\
+		width=10, height=1, cursor="exchange", text="IP",\
+		font="Calibri 10 bold", command=getIP)
+	BgetIP.grid(row=1, column=2, sticky=W, padx=10)
 	
 	#===============================================================
 	
@@ -117,6 +120,7 @@ if __name__ == "__main__":
 	Texto2.grid(row=3, column=1, sticky=W, pady=(5,10))
 	Texto2.config(justify="center", state="normal")
 	Texto2.insert(0, IP)
+	
 	
 	#===============================================================
 	
