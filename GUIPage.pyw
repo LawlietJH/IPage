@@ -7,7 +7,7 @@
 #                     ██║██║     ██║  ██║╚██████╔╝███████╗
 #                     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
 #                                                         By: LawlietJH
-#                                                         GUI - v1.0.1
+#                                                         GUI - v1.0.2
 
 from tkinter import *
 import sys
@@ -15,7 +15,7 @@ import os
 
 
 
-Version = "v1.0.1"
+Version = "v1.0.2"
 
 
 
@@ -53,51 +53,55 @@ if __name__ == "__main__":
 	
 	root = Tk()
 	
-	root.title("GUIPage.pyw    By: LawlietJH    " + Version)
+	root.title("GUIPage.py  By: LawlietJH  " + Version)
+	root.iconbitmap("Imagenes\LawlietJH.ico")
 	root.geometry("+240+160")
+	root.resizable(0,0)
 	
 	#===============================================================
 	
 	# Ventana Principal
 	Fr = Frame(root)
-	Fr.grid(column=0, row=0, padx=(20,30), pady=(20,30))
+	Fr.grid(column=0, row=0, padx=(5,5), pady=(7,7))
 	Fr.columnconfigure(0, weight=1)
 	Fr.rowconfigure(0, weight=1)
+	Fr.config(relief="sunken", bd=3)
 	
 	#===============================================================
 	
 	# Etiqueta 1:
-	Et1 = Label(Fr, text="Ejemplo: ")
-	Et1.grid(row=0, column=0, sticky=E)
+	Et1 = Label(Fr, fg="Purple", text="Ejemplo: ")
+	Et1.grid(row=0, column=0, sticky=E, padx=(10,0), pady=(15,5))
 	
 	# Etiqueta 2:
-	Et2 = Label(Fr, text="www.google.com  o  google.com")
-	Et2.grid(row=0, column=1, sticky=W)
+	Et2 = Label(Fr, fg="Gray", text="www.google.com  o  google.com")
+	Et2.grid(row=0, column=1, sticky=W, pady=(15,5))
 	
 	#===============================================================
 	
 	# Etiqueta 3:
-	Et3 = Label(Fr, text="Página: ")
+	Et3 = Label(Fr, fg="Purple", text="Página: ")
 	Et3.grid(row=1, column=0, sticky=E)
 	
 	# Cuadro de Texto 1:
-	Texto1 = Entry(Fr, width=30)
-	Texto1.grid(row=1, column=1)
+	Texto1 = Entry(Fr, fg="Green", width=30)
+	Texto1.grid(row=1, column=1, sticky=W)
+	Texto1.config(justify="center")
 	
 	# Boton 1:
-	BgetIP = Button(Fr, fg="Blue", text=" IP ", command=getIP)
-	BgetIP.grid(row=1, column=2)
+	BgetIP = Button(Fr, bg="lightblue", fg="Blue",\
+		width=10, cursor="", text="IP", command=getIP)
+	BgetIP.grid(row=1, column=2, sticky=W, padx=15)
 	
 	#===============================================================
 	
 	# Etiqueta 4:
-	Et4 = Label(Fr, text="IP: ")
-	Et4.grid(row=3, column=0, sticky=E)
+	Et4 = Label(Fr, fg="Purple", text="IP: ")
+	Et4.grid(row=3, column=0, sticky=E, pady=(5,10))
 	
 	# Etiqueta 5:
-	Et5 = Label(Fr, text="")
-	Et5.grid(row=3, column=1, sticky=W)
-	
+	Et5 = Label(Fr, fg="Red", text="Esperando IP...")
+	Et5.grid(row=3, column=1, sticky=W, pady=(5,10))
 	
 	#===============================================================
 	
