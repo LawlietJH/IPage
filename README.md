@@ -2,19 +2,7 @@
 ## Obten la IP de cualquier Página Web.
 
 - - -
-                      ██╗██████╗  █████╗  ██████╗ ███████╗
-                      ██║██╔══██╗██╔══██╗██╔════╝ ██╔════╝
-                      ██║██████╔╝███████║██║  ███╗█████╗  
-                      ██║██╔═══╝ ██╔══██║██║   ██║██╔══╝  
-                      ██║██║     ██║  ██║╚██████╔╝███████╗
-                      ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
-                                                                   
-                            ╦  ┌─┐┬ ┬┬  ┬┌─┐┌┬┐╦╦ ╦
-                            ║  ├─┤││││  │├┤  │ ║╠═╣
-                            ╩═╝┴ ┴└┴┘┴─┘┴└─┘ ┴╚╝╩ ╩
-                                      
-                                    GUI_v1.0.4
-                                      v1.0.3
+![Banner](Imagenes/Banners.png "Banners")
 - - -
 
 * Version = 1.0.3
@@ -29,7 +17,18 @@
      
  * Para Cerrar El Script Precionar: 'Ctrl + C'
 
+### Captura:
+
+![Ejemplo](Imagenes/Ejemplo.png "Ejemplo")
 
 ### Modo de Uso [GUI]:
 
   * Escribe el Nombre de Cualquier Página y Precionar El Boton 'IP'.
+
+### Capturas:
+
+![Ejemplo-GUI_1](Imagenes/Ejemplo-GUI_1.png "Ejemplo de GUI 1")
+
+![Ejemplo-GUI_2](Imagenes/Ejemplo-GUI_2.png "Ejemplo de GUI 2")
+
+![Ejemplo-GUI_3](Imagenes/Ejemplo-GUI_3.png "Ejemplo de GUI 3")
