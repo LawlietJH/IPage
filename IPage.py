@@ -7,14 +7,14 @@
 #                     ██║██║     ██║  ██║╚██████╔╝███████╗
 #                     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
 #                                                         By: LawlietJH
-#                                                               v1.0.3
+#                                                               v1.0.4
 
 import sys
 import os
 
 
 
-Version = "v1.0.3"
+Version = "v1.0.4"
 
 
 
@@ -137,6 +137,10 @@ def HiddenCursor(imp="Hide"):
 
 def getIP(Pagina): # Función que obtiene la IP de una Página Web solicitada.
 	
+	global IPvX
+	
+	IPvX = "4"
+	
 	if Pagina == "": return True
 	
 	Cadena = os.popen("ping -n 1 " + Pagina).read()
@@ -144,6 +148,8 @@ def getIP(Pagina): # Función que obtiene la IP de una Página Web solicitada.
 	try:
 		
 		IP = Cadena.split("[")[1].split("]")[0]
+		
+		if ":" in IP: IPvX = "6"
 		
 		return IP
 		
@@ -159,7 +165,10 @@ def Main(): # Función Principal. Manda a Llamra Los Métodos Necesarios.
 	
 	if IP == True: print("\n\t [!] Escribe Una Página Web. \n\t [*] Ejemplo: www.google.com  o  google.com")
 	elif IP == False: print("\n\t [!] Página Inexistente! \n\t [*] Ejemplo: www.google.com  o  google.com")
-	else: print("\n\t [*]  IP  : " + IP)
+	else:
+		
+		if IPvX == "4": print("\n\t [*]  IPv4  : " + IP)
+		elif IPvX == "6": print("\n\t [*]  IPv6  : " + IP)
 
 
 
@@ -170,6 +179,8 @@ def Main(): # Función Principal. Manda a Llamra Los Métodos Necesarios.
 # Todo Lo Que Este Dentro De Esta Condicion Será Ejecutado Solo Si El Script Se Ejecuta Directamente.
 # Esto nos permite Poder llamar las funciones desde otro escript sin ejecutar los comandos dentro del condicional.
 if __name__ == "__main__":  
+	
+	IPvX = "4"
 	
 	os.system("Title IPage.py                " + \
 	"By: LawlietJH                " + Version + "    ")
