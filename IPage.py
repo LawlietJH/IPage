@@ -7,14 +7,14 @@
 #                     ██║██║     ██║  ██║╚██████╔╝███████╗
 #                     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
 #                                                         By: LawlietJH
-#                                                               v1.0.4
+#                                                               v1.0.5
 
 import sys
 import os
 
 
 
-Version = "v1.0.4"
+Version = "v1.0.5"
 
 
 
@@ -140,6 +140,8 @@ def getIP(Pagina): # Función que obtiene la IP de una Página Web solicitada.
 	global IPvX
 	
 	IPvX = "4"
+	IP = ""
+	IP2 = ""
 	
 	if Pagina == "": return True
 	
@@ -149,9 +151,13 @@ def getIP(Pagina): # Función que obtiene la IP de una Página Web solicitada.
 		
 		IP = Cadena.split("[")[1].split("]")[0]
 		
-		if ":" in IP: IPvX = "6"
+		if ":" in IP:
+			
+			IPvX = "6"
+			Cadena = os.popen("ping -r 1 " + Pagina).read()
+			IP2 = Cadena.split("[")[1].split("]")[0]
 		
-		return IP
+		return IP, IP2
 		
 	except IndexError: return False
 
@@ -161,14 +167,18 @@ def Main(): # Función Principal. Manda a Llamra Los Métodos Necesarios.
 	
 	Pagina = input("\n\n    [+] Página Web: ")
 	
-	IP = getIP(Pagina)
+	IP, IP2 = getIP(Pagina)
 	
 	if IP == True: print("\n\t [!] Escribe Una Página Web. \n\t [*] Ejemplo: www.google.com  o  google.com")
 	elif IP == False: print("\n\t [!] Página Inexistente! \n\t [*] Ejemplo: www.google.com  o  google.com")
 	else:
 		
 		if IPvX == "4": print("\n\t [*]  IPv4  : " + IP)
-		elif IPvX == "6": print("\n\t [*]  IPv6  : " + IP)
+		
+		elif IPvX == "6":
+			
+			print("\n\t [*]  IPv4  : " + IP2)
+			print("\n\t [*]  IPv6  : " + IP)
 
 
 
